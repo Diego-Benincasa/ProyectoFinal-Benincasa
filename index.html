@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registro de Pesadas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>Registro de Pesadas de Camiones</h1>
+
+    <form id="formPesada">
+      <label>Matrícula: <input type="text" id="matricula" required /></label>
+      <label>Tara (kg): <input type="number" id="tara" required /></label>
+      <label>Bruto (kg): <input type="number" id="bruto" required /></label>
+      <button type="submit">Registrar</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Matrícula</th>
+          <th>Tara</th>
+          <th>Bruto</th>
+          <th>Neto</th>
+          <th>Fecha</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody id="tablaPesadas"></tbody>
+    </table>
+    <br />
+    <button id="borrarPesadas">Borrar todo el registro</button>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
