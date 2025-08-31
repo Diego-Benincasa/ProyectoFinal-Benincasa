@@ -35,18 +35,20 @@ function actualizarTabla() {
         <td>${p.bruto}</td>
         <td>${p.neto}</td>
         <td>${p.fecha}</td>
+        <td>
+          <button onclick="borrarPesada(${i})">Eliminar</button>
+        </td>
       </tr>
     `;
     tbody.innerHTML += fila;
   });
 }
 
-document.getElementById("borrarPesadas").addEventListener("click", () => {
-  if (confirm("Seguro que quieres borrar todo el resgistro?")) {
-    pesadas = [];
-    localStorage.removeItem("pesadas");
+function borrarPesada(indice) {
+  if (confirm("Borrar la pesada?")) {
+    pesadas.splice(indice, 1);
+    localStorage.setItem("pesadas", JSON.stringify(pesadas));
     actualizarTabla();
   }
-});
+}
 
-actualizarTabla();
