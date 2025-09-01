@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Registro de Pesadas</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
     <h1>Registro de Pesadas de Camiones</h1>
@@ -31,7 +31,9 @@
     </table>
     <br />
     <button id="borrarPesadas">Borrar todo el registro</button>
+    <button onclick="mostrarFiltradas(5000)">Mostrar mayores a 5000kg</button>
+    <button onclick="actualizarTabla()">Mostrar todas</button>
 
-    <script src="./script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
