@@ -8,8 +8,8 @@ document
     let matricula = document.getElementById("matricula").value;
     let tara = document.getElementById("tara").value;
     let bruto = document.getElementById("bruto").value;
-    let nuevaPesada = new Pesada(matricula, tara, bruto);
 
+    let nuevaPesada = new Pesada(matricula, tara, bruto);
     pesadas.push(nuevaPesada);
 
     localStorage.setItem("pesadas", JSON.stringify(pesadas));
@@ -52,15 +52,24 @@ function actualizarTabla() {
 }
 
 function borrarPesada(indice) {
-  if (confirm("Borrar la pesada?")) {
+  if (confirm("¿Borrar la pesada seleccionada?")) {
     pesadas.splice(indice, 1);
     localStorage.setItem("pesadas", JSON.stringify(pesadas));
     actualizarTabla();
   }
 }
 
+function borrarPesadas() {
+  if (confirm("¿Borrar todo el registro?")) {
+    pesadas = [];
+    localStorage.removeItem("pesadas");
+    actualizarTabla();
+    alert("Todos los registros han sido eliminados");
+  }
+}
+
 function mostrarFiltradas(minimo) {
-  let filtradas = pesadas.filter((p) => p.net >= minimo);
+  let filtradas = pesadas.filter((p) => p.neto >= minimo);
 
   let tbody = document.getElementById("tablaPesadas");
   tbody.innerHTML = "";
@@ -79,3 +88,7 @@ function mostrarFiltradas(minimo) {
     tbody.innerHTML += fila;
   });
 }
+
+window.onload = function () {
+  actualizarTabla();
+};

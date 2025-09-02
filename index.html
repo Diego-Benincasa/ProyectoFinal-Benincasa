@@ -6,16 +6,39 @@
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
+    <nav class="navbar">
+      <ul>
+        <li class="list-item"><a href="#">Registrar</a></li>
+        <li class="list-item"><a href="#">Ver registro</a></li>
+        <li class="list-item"><a href="#">Usuario</a></li>
+      </ul>
+    </nav>
+
     <h1>Registro de Pesadas de Camiones</h1>
 
     <form id="formPesada">
-      <label>Matrícula: <input type="text" id="matricula" required /></label>
-      <label>Tara (kg): <input type="number" id="tara" required /></label>
-      <label>Bruto (kg): <input type="number" id="bruto" required /></label>
+      <label>
+        Matrícula:
+        <input type="text" id="matricula" required />
+      </label>
+      <label>
+        Tara (kg):
+        <input type="number" id="tara" required />
+      </label>
+      <label>
+        Bruto (kg):
+        <input type="number" id="bruto" required />
+      </label>
       <button type="submit">Registrar</button>
     </form>
 
-    <table>
+    <div style="margin-top: 15px">
+      <button onclick="borrarPesadas()">Borrar todo el registro</button>
+      <button onclick="mostrarFiltradas(5000)">Mostrar mayores a 5000kg</button>
+      <button onclick="actualizarTabla()">Mostrar todas</button>
+    </div>
+
+    <table style="margin-top: 15px; width: 100%; border-collapse: collapse">
       <thead>
         <tr>
           <th>ID</th>
@@ -29,10 +52,6 @@
       </thead>
       <tbody id="tablaPesadas"></tbody>
     </table>
-    <br />
-    <button id="borrarPesadas">Borrar todo el registro</button>
-    <button onclick="mostrarFiltradas(5000)">Mostrar mayores a 5000kg</button>
-    <button onclick="actualizarTabla()">Mostrar todas</button>
 
     <script src="./scripts/script.js"></script>
   </body>
