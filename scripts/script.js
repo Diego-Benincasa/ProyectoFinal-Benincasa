@@ -1,40 +1,72 @@
 let pesadas = JSON.parse(localStorage.getItem("pesadas")) || [];
 
-document
-  .getElementById("formPesada")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+const form = document.getElementById("formPesada");
+const inputMatricula = document.getElementById("matricula");
+const inputTara = document.getElementById("tara");
+const inputBruto = document.getElementById("bruto");
 
-    let matricula = document.getElementById("matricula").value;
-    let tara = document.getElementById("tara").value;
-    let bruto = document.getElementById("bruto").value;
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-    let nuevaPesada = new Pesada(matricula, tara, bruto);
-    pesadas.push(nuevaPesada);
+  const matricula = (inputMatricula.value || "").trim();
+  const tara = Number(inputTara.value);
+  const bruto = Number(inputBruto.value);
 
-    localStorage.setItem("pesadas", JSON.stringify(pesadas));
+  if (!matricula || Number.isNaN(tara) || Number.isNaN(bruto)) {
+    Toastify({
+      text: "Completa los campos primero!",
+      duration: 3000,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+    }).showToast();
+    return;
+  }
 
-    actualizarTabla();
+  const nuevaPesada = new Pesada(matricula, tara, bruto);
+  pesadas.push(nuevaPesada);
 
-    document.getElementById("formPesada").reset();
-  });
+  localStorage.setItem("pesadas", JSON.stringify(pesadas));
+
+  actualizarTabla();
+
+  form.reset();
+  inputMatricula.focus();
+
+  Toastify({
+    text: "Pesada registrada!",
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+  }).showToast();
+});
 
 class Pesada {
   constructor(matricula, tara, bruto) {
     this.matricula = matricula;
-    this.tara = parseInt(tara);
-    this.bruto = parseInt(bruto);
+    this.tara = Number(tara);
+    this.bruto = Number(bruto);
     this.neto = this.bruto - this.tara;
     this.fecha = new Date().toLocaleString();
   }
 }
 
 function actualizarTabla() {
-  let tbody = document.getElementById("tablaPesadas");
+  const tbody = document.getElementById("tablaPesadas");
+  if (!tbody) return;
+
   tbody.innerHTML = "";
 
+  if (pesadas.length === 0) {
+    tbody.innerHTML = `
+      <tr><td colspan="7" style="text-align:center;">Sin registros</td></tr>
+    `;
+    return;
+  }
+
   pesadas.forEach((p, i) => {
-    let fila = `
+    const fila = `
       <tr>
         <td>${i + 1}</td>
         <td>${p.matricula}</td>
@@ -43,7 +75,7 @@ function actualizarTabla() {
         <td>${p.neto}</td>
         <td>${p.fecha}</td>
         <td>
-          <button onclick="borrarPesada(${i})">Eliminar</button>
+          <button type="button" onclick="borrarPesada(${i})">Eliminar</button>
         </td>
       </tr>
     `;
@@ -52,30 +84,58 @@ function actualizarTabla() {
 }
 
 function borrarPesada(indice) {
-  if (confirm("¿Borrar la pesada seleccionada?")) {
+  if (indice < 0 || indice >= pesadas.length) return;
+
+  if (confirm("Borrar la pesada seleccionada?")) {
+    const borrada = pesadas[indice];
     pesadas.splice(indice, 1);
     localStorage.setItem("pesadas", JSON.stringify(pesadas));
     actualizarTabla();
+
+    Toastify({
+      text: `Eliminaste la pesada #${indice + 1} (${borrada.matricula})`,
+      duration: 3000,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+    }).showToast();
   }
 }
 
 function borrarPesadas() {
-  if (confirm("¿Borrar todo el registro?")) {
+  if (pesadas.length === 0) return;
+
+  if (confirm("Borrar todo el registro?")) {
     pesadas = [];
     localStorage.removeItem("pesadas");
     actualizarTabla();
-    alert("Todos los registros han sido eliminados");
+
+    Toastify({
+      text: "Todos los registros han sido eliminados",
+      duration: 3000,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+    }).showToast();
   }
 }
 
 function mostrarFiltradas(minimo) {
-  let filtradas = pesadas.filter((p) => p.neto >= minimo);
+  const tbody = document.getElementById("tablaPesadas");
+  if (!tbody) return;
 
-  let tbody = document.getElementById("tablaPesadas");
+  const filtradas = pesadas.filter((p) => p.neto >= minimo);
   tbody.innerHTML = "";
 
+  if (filtradas.length === 0) {
+    tbody.innerHTML = `
+      <tr><td colspan="6" style="text-align:center;">Sin resultados</td></tr>
+    `;
+    return;
+  }
+
   filtradas.forEach((p, i) => {
-    let fila = `
+    const fila = `
       <tr>
         <td>${i + 1}</td>
         <td>${p.matricula}</td>
