@@ -50,3 +50,12 @@ th {
 .navbar ul li {
   margin: 10px;
 }
+
+main {
+  margin: 2.5rem;
+}
+
+.title-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
