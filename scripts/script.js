@@ -152,3 +152,5 @@ function mostrarFiltradas(minimo) {
 window.onload = function () {
   actualizarTabla();
 };
+
+

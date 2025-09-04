@@ -5,9 +5,7 @@
   font-family: sans-serif;
 }
 
-body {
-  margin: 20px;
-}
+
 
 form {
   margin-bottom: 20px;
@@ -36,3 +34,19 @@ th {
     background-color: #f4f4f4;
 }
 
+
+.navbar {
+  display: flex;
+  background-color: #ddd;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+}
+
+.navbar ul li {
+  margin: 10px;
+}
