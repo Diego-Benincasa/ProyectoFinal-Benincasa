@@ -3,65 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <title>Registro de Pesadas</title>
-    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
   </head>
   <body>
-    <nav class="navbar">
-      <ul>
-        <li class="list-item"><a href="#">Registrar</a></li>
-        <li class="list-item"><a href="#">Ver registro</a></li>
-        <li class="list-item"><a href="#">Usuario</a></li>
-      </ul>
-    </nav>
-
     <main>
+      <h1 class="title-title">Registro de Pesadas de Camiones</h1>
 
-    <h1 class="title-title">Registro de Pesadas de Camiones</h1>
+      <form id="formPesada">
+        <label>
+          Matrícula:
+          <input type="text" id="matricula" required />
+        </label>
+        <label>
+          Tara (kg):
+          <input type="number" id="tara" required />
+        </label>
+        <label>
+          Bruto (kg):
+          <input type="number" id="bruto" required />
+        </label>
+        <button type="submit">Registrar</button>
+      </form>
 
-    <form id="formPesada">
-      <label>
-        Matrícula:
-        <input type="text" id="matricula" required />
-      </label>
-      <label>
-        Tara (kg):
-        <input type="number" id="tara" required />
-      </label>
-      <label>
-        Bruto (kg):
-        <input type="number" id="bruto" required />
-      </label>
-      <button type="submit">Registrar</button>
-    </form>
+      <div style="margin-top: 15px">
+        <button onclick="borrarPesadas()">Borrar todo el registro</button>
+        <button onclick="mostrarFiltradas(5000)">
+          Mostrar mayores a 5TON
+        </button>
+        <button onclick="actualizarTabla()">Mostrar todas</button>
+      </div>
 
-    <div style="margin-top: 15px">
-      <button onclick="borrarPesadas()">Borrar todo el registro</button>
-      <button onclick="mostrarFiltradas(5000)">Mostrar mayores a 5000kg</button>
-      <button onclick="actualizarTabla()">Mostrar todas</button>
-    </div>
-
-    <table style="margin-top: 15px; width: 100%; border-collapse: collapse">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Matrícula</th>
-          <th>Tara</th>
-          <th>Bruto</th>
-          <th>Neto</th>
-          <th>Fecha</th>
-          <th>Eliminar</th>
-        </tr>
-      </thead>
-      <tbody id="tablaPesadas"></tbody>
-    </table>
-
+      <table style="margin-top: 15px; width: 100%; border-collapse: collapse">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Matrícula</th>
+            <th>Tara</th>
+            <th>Bruto</th>
+            <th>Neto</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaPesadas"></tbody>
+      </table>
     </main>
 
-    <script src="./scripts/script.js"></script>
+    <script src="./js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>

@@ -1,0 +1,20 @@
+{
+  "name": "entregable2benincasa",
+  "version": "1.0.0",
+  "description": "Esto es una pequeña muestra de mi futura app de registro de incidencias de camiones",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diego-Benincasa/entregable2Benincasa.git"
+  },
+  "author": "Diego Benincasa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diego-Benincasa/entregable2Benincasa/issues"
+  },
+  "homepage": "https://github.com/Diego-Benincasa/entregable2Benincasa#readme"
+}
