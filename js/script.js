@@ -12,6 +12,8 @@ try {
   localStorage.removeItem("pesadas");
 }
 
+
+
 // guardamos en variables los elementos del DOM para usarlos mas tarde
 const form = document.getElementById("formPesada");
 const inputMatricula = document.getElementById("matricula");
@@ -108,10 +110,11 @@ function actualizarTabla() {
       <td>${p.bruto}</td>
       <td>${p.neto}</td>
       <td>${p.fecha}</td>
+      <td><button type="button" class="btn-editar" data-index="${i}">Editar</button></td>
       <td>
         <button type="button" class="btn-borrar" data-index="${i}">Eliminar</button>
-        <button type="button" class="btn-editar" data-index="${i}">Editar</button>
       </td>
+      
     </tr>`
     )
     .join("");
@@ -282,6 +285,10 @@ function mostrarFiltradas(minimo) {
       <td>${p.bruto}</td>
       <td>${p.neto}</td>
       <td>${p.fecha}</td>
+      <td><button type="button" class="btn-editar" data-index="${i}">Editar</button></td>
+      <td>
+        <button type="button" class="btn-borrar" data-index="${i}">Eliminar</button>
+      </td>
     </tr>`
     )
     .join("");

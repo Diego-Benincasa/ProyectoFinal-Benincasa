@@ -1,7 +1,6 @@
-
 :root {
-  --bg: #0f1724;
-  --card: #0b1220;
+  --bg: #19253a;
+  --card: #16233f;
   --muted: #94a3b8;
   --accent: #06b6d4;
   --success: #16a34a;
@@ -16,10 +15,27 @@
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
 
+html {
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+}
+
 body {
-  background: linear-gradient(180deg, #071127 0%, #071a2a 100%);
+  background: linear-gradient(180deg, #183166 0%, #0d3250 100%);
   color: #e6eef6;
   padding: 20px;
+  height: 100%;
+  margin: 0;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar {
@@ -43,7 +59,6 @@ body {
 .navbar a:hover {
   color: var(--accent);
 }
-
 
 .title-title {
   text-align: center;
@@ -92,7 +107,6 @@ form button:disabled {
   cursor: not-allowed;
 }
 
-
 button {
   padding: 8px 12px;
   border-radius: 10px;
@@ -111,7 +125,6 @@ button[onclick] {
 button[onclick]:last-child {
   margin-right: 0;
 }
-
 
 table {
   width: 100%;
@@ -133,7 +146,6 @@ tbody td {
   font-size: 14px;
 }
 
-
 tbody td button {
   padding: 4px 8px;
   border-radius: 6px;
@@ -147,7 +159,6 @@ tbody td button:last-child {
   background: var(--danger);
   color: white;
 }
-
 
 tbody td span.neto-low {
   background: rgba(16, 185, 129, 0.08);
@@ -202,4 +213,12 @@ tbody td span.neto-high {
     color: var(--muted);
     margin-bottom: 4px;
   }
+}
+
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  
 }

@@ -29,12 +29,10 @@
         <button type="submit">Registrar</button>
       </form>
 
-      <div style="margin-top: 15px">
-        <button onclick="borrarPesadas()">Borrar todo el registro</button>
-        <button onclick="mostrarFiltradas(5000)">
-          Mostrar mayores a 5TON
-        </button>
+      <div class="btns">
+        <button onclick="mostrarFiltradas(5000)">Mostrar mayores a 5TON</button>
         <button onclick="actualizarTabla()">Mostrar todas</button>
+        <button onclick="borrarPesadas()">Borrar todo el registro</button>
       </div>
 
       <table style="margin-top: 15px; width: 100%; border-collapse: collapse">
@@ -46,7 +44,8 @@
             <th>Bruto</th>
             <th>Neto</th>
             <th>Fecha</th>
-            <th>Acciones</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody id="tablaPesadas"></tbody>
