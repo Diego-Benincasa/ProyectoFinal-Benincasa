@@ -79,7 +79,7 @@ form.addEventListener("submit", function (event) {
  */
 class Pesada {
   constructor(matricula, tara, bruto) {
-    this.matricula = matricula;
+    this.matricula = matricula.toUpperCase();
     this.tara = Number(tara);
     this.bruto = Number(bruto);
     this.neto = this.bruto - this.tara;
@@ -266,7 +266,7 @@ function mostrarFiltradas(minimo) {
   tbody.innerHTML = "";
 
   if (filtradas.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;">Sin resultados</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;">Sin resultados</td></tr>`;
     Swal.fire({
       icon: "info",
       title: "Sin resultados",
@@ -315,7 +315,51 @@ if (tbody) {
   });
 }
 
-// al abrir la web llama a la función actualizarTabla para ver que hay en el localStorage
+//barra de busqueda
+
+const buscador = document.getElementById("buscador");
+
+buscador.addEventListener("input", function () {
+  const texto = buscador.value.toLowerCase();
+
+  // filtramos las pesadas que coincidan con lo buscado
+  const filtradas = pesadas.filter((p) =>
+    p.matricula.toLowerCase().includes(texto)
+  );
+
+  // mostramos la tabla con solo los resultados filtrados
+  mostrarResultados(filtradas);
+});
+
+// función auxiliar para mostrar la tabla con un array dado
+function mostrarResultados(lista) {
+  if (!tbody) return;
+
+  if (lista.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;">Sin resultados</td></tr>`;
+    return;
+  }
+
+  const filas = lista
+    .map(
+      (p, i) => `
+    <tr>
+      <td>${i + 1}</td>
+      <td>${p.matricula}</td>
+      <td>${p.tara}</td>
+      <td>${p.bruto}</td>
+      <td>${p.neto}</td>
+      <td>${p.fecha}</td>
+      <td><button type="button" class="btn-editar" data-index="${i}">Editar</button></td>
+      <td><button type="button" class="btn-borrar" data-index="${i}">Eliminar</button></td>
+    </tr>`
+    )
+    .join("");
+
+  tbody.innerHTML = filas;
+}
+
+
 window.onload = function () {
   actualizarTabla();
 };
