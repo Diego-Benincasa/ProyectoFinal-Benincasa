@@ -327,7 +327,6 @@ buscador.addEventListener("input", function () {
     p.matricula.toLowerCase().includes(texto)
   );
 
-  // mostramos la tabla con solo los resultados filtrados
   mostrarResultados(filtradas);
 });
 
