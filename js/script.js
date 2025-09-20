@@ -12,8 +12,6 @@ try {
   localStorage.removeItem("pesadas");
 }
 
-
-
 // guardamos en variables los elementos del DOM para usarlos mas tarde
 const form = document.getElementById("formPesada");
 const inputMatricula = document.getElementById("matricula");
@@ -357,8 +355,6 @@ function mostrarResultados(lista) {
 
   tbody.innerHTML = filas;
 }
-
-
 window.onload = function () {
   actualizarTabla();
 };

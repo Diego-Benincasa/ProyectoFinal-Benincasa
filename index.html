@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Registro de Pesadas</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
-  </head>
-  <body>
-    <main>
-      <h1 class="title-title">Registro de pesadas de Camiones</h1>
 
-      <form id="formPesada">
-        <label>
-          Matrícula:
-          <input type="text" id="matricula" required />
-        </label>
-        <label>
-          Tara (kg):
-          <input type="number" id="tara" required />
-        </label>
-        <label>
-          Bruto (kg):
-          <input type="number" id="bruto" required />
-        </label>
-        <button type="submit">Registrar</button>
-      </form>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Registro de pesadas de camiones — control.">
+  <title>Registro de pesadas de Camiones</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+</head>
 
-      <div class="btns">
-        <button onclick="mostrarFiltradas(5000)">Mostrar mayores a 5TON</button>
-        <button onclick="actualizarTabla()">Mostrar todas</button>
-        <input type="text" id="buscador" placeholder="Buscar matrícula..." />
-        <button
-          style="background: var(--danger); color: #042a32; margin-top: 10px"
-          onclick="borrarPesadas()"
-        >
-          Borrar todo el registro
-        </button>
-      </div>
+<body>
+  <main>
+    <h1 class="title-title">Registro de pesadas de Camiones</h1>
 
-      <table style="margin-top: 15px; width: 100%; border-collapse: collapse">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Matrícula</th>
-            <th>Tara</th>
-            <th>Bruto</th>
-            <th>Neto</th>
-            <th>Fecha</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-        <tbody id="tablaPesadas"></tbody>
-      </table>
-    </main>
+    <form id="formPesada">
+      <label>
+        Matrícula:
+        <input type="text" id="matricula" />
+      </label>
+      <label>
+        Tara (kg):
+        <input type="number" id="tara" />
+      </label>
+      <label>
+        Bruto (kg):
+        <input type="number" id="bruto" />
+      </label>
+      <button id="btn-registrar" aria-live="assertive" type="submit">Registrar</button>
+    </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/script.js"></script>
-  </body>
+    <div class="btns">
+      <button onclick="mostrarFiltradas(5000)">Mostrar mayores a 5TON</button>
+      <button onclick="actualizarTabla()">Mostrar todas</button>
+      <input type="text" id="buscador" placeholder="Buscar matrícula..." />
+      <button style="background: var(--danger); color: #042a32; margin-top: 10px" onclick="borrarPesadas()">
+        Borrar todo el registro
+      </button>
+    </div>
+
+    <table style="margin-top: 15px; width: 100%; border-collapse: collapse">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Matrícula</th>
+          <th>Tara</th>
+          <th>Bruto</th>
+          <th>Neto</th>
+          <th>Fecha</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody id="tablaPesadas"></tbody>
+    </table>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/script.js" defer></script>
+
+</body>
+
 </html>

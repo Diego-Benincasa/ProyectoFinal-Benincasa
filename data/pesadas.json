@@ -12,5 +12,61 @@
         "bruto": 7000,
         "neto": 4000,
         "fecha": "19/09/2025 15:00"
+    },
+    {
+        "matricula": "TRK789",
+        "tara": 2800,
+        "bruto": 7500,
+        "neto": 4700,
+        "fecha": "19/09/2025 15:30"
+    },
+    {
+        "matricula": "CAM234",
+        "tara": 2600,
+        "bruto": 6100,
+        "neto": 3500,
+        "fecha": "19/09/2025 16:00"
+    },
+    {
+        "matricula": "TRK567",
+        "tara": 3200,
+        "bruto": 8200,
+        "neto": 5000,
+        "fecha": "19/09/2025 16:30"
+    },
+    {
+        "matricula": "CAM345",
+        "tara": 2700,
+        "bruto": 7000,
+        "neto": 4300,
+        "fecha": "19/09/2025 17:00"
+    },
+    {
+        "matricula": "TRK678",
+        "tara": 3100,
+        "bruto": 7800,
+        "neto": 4700,
+        "fecha": "19/09/2025 17:30"
+    },
+    {
+        "matricula": "CAM456",
+        "tara": 2500,
+        "bruto": 6200,
+        "neto": 3700,
+        "fecha": "19/09/2025 18:00"
+    },
+    {
+        "matricula": "TRK890",
+        "tara": 3300,
+        "bruto": 8400,
+        "neto": 5100,
+        "fecha": "19/09/2025 18:30"
+    },
+    {
+        "matricula": "CAM567",
+        "tara": 2900,
+        "bruto": 7600,
+        "neto": 4700,
+        "fecha": "19/09/2025 19:00"
     }
 ]
